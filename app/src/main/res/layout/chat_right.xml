@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    >
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_image"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/show_message"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        android:textSize="18dp"
+        android:padding="8dp"
+        android:background="@drawable/b_right"
+        android:textColor="#fff"
+        android:text="hello"
+        android:layout_alignParentRight="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/msg_time"
+            android:text="Date"
+            android:layout_below="@id/show_message"
+            android:layout_alignParentRight="true"
+            />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:id="@+id/image_sent">
+
+    </ImageView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_seen"
+            android:layout_below="@id/show_message"
+            android:layout_toLeftOf="@id/msg_time"
+            android:src="@mipmap/clock"
+
+       />
+
+</RelativeLayout>

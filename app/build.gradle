@@ -1,0 +1,85 @@
+
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/'}
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.12.6'
+    }
+}
+
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
+apply plugin: 'com.android.application'
+
+
+apply plugin: 'com.google.gms.google-services'
+
+repositories {
+    maven { url 'https://maven.google.com' }
+}
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "com.example.iskchat"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                onesignal_app_id: '157b8954-d041-4afa-9b56-3824f23dfd11',
+                // Project number pulled from dashboard, local value is ignored.
+                onesignal_google_project_number: 'REMOTE'
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    // Add the Firebase SDK for Google Analytics
+
+    // Add the SDKs for any other Firebase products you want to use in your app
+    //to use Firebase Authentication and Cloud Firestore
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    implementation 'com.google.firebase:firebase-auth:19.0.0'
+    implementation 'com.google.firebase:firebase-database:19.1.0'
+    implementation 'com.google.firebase:firebase-storage:19.0.1'
+
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:customtabs:28.0.0'
+    implementation 'com.android.support:support-vector-drawable:28.0.0'
+    implementation 'com.android.support:support-media-compat:28.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    //nofication
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.onesignal:OneSignal:[3.9.2, 3.99.99)'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+
+    // Getting a "Could not find" error? Make sure that you've added
+    // Google's Maven repository to your root-level build.gradle file
+}

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "398813990282",
+    "firebase_url": "https://iskchat-4fea6.firebaseio.com",
+    "project_id": "iskchat-4fea6",
+    "storage_bucket": "iskchat-4fea6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398813990282:android:db233da24e127d3a",
+        "android_client_info": {
+          "package_name": "com.example.iskchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398813990282-8rbffqsrtraao1h18lqe44hhth8rsro1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.iskchat",
+            "certificate_hash": "0e20a8c84f150d7e7064ca74ef1ea405df62dafb"
+          }
+        },
+        {
+          "client_id": "398813990282-usdmuusnmab6qvrpq9olon0b724cob44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrlfT0j3NkDfcy11j7eUpObVEYhXXQjdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398813990282-usdmuusnmab6qvrpq9olon0b724cob44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
