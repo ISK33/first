@@ -15,8 +15,8 @@
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/profile_image"
         android:layout_toRightOf="@id/profile_image"
         android:text="User name"
@@ -55,13 +55,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/profile_image"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@id/username"
         android:id="@+id/last_msg"
+        android:textSize="12dp"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="20dp"
         android:maxLines="1"/>
 
+    <ImageView
+        android:id="@+id/last_image"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/username"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/profile_image"
+        android:maxLines="1"
+        android:src="@drawable/last_image"
+        android:textColor="@color/colorPrimaryDark" />
     <TextView
         android:id="@+id/unread"
         android:layout_width="25dp"

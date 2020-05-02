@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (!task.isSuccessful()) {
                     Log.d("FlashChat", "Problem signing in: " + task.getException());
-                    showErrorDialog("There was a problem signing in\n you have to use VPN");
+                    showErrorDialog("There was a problem signing in\n  you have to use VPN");
                 } else {
                     String userid = mAuth.getCurrentUser().getUid();
                     String deviceToken = FirebaseInstanceId.getInstance().getToken();

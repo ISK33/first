@@ -19,11 +19,13 @@ repositories {
     maven { url 'https://maven.google.com' }
 }
 android {
+
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.example.iskchat"
         minSdkVersion 16
+        viewBinding.enabled = true
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -78,6 +80,7 @@ dependencies {
     implementation 'com.onesignal:OneSignal:[3.9.2, 3.99.99)'
 
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 
     // Getting a "Could not find" error? Make sure that you've added

@@ -62,7 +62,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
 
         if (ischat) {
-            lastMessage(user.getId(),holder.last_msg,holder.unread);
+            lastMessage(user.getId(),holder.last_msg,holder.unread,holder.last_image);
 
 
             if (user.getStatus().equals("online")) {
@@ -104,10 +104,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView username,last_msg,unread;
-        public ImageView profile_image;
+        public ImageView profile_image,last_image;
         private ImageView img_on;
         private ImageView img_off;
-        // private RecyclerView alert;
 
 
 
@@ -119,13 +118,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             img_off=itemView.findViewById(R.id.img_off);
             last_msg=itemView.findViewById(R.id.last_msg);
             unread=itemView.findViewById(R.id.unread);
-            //alert=itemView.findViewById(R.id.recycler_view);
-
+            last_image=itemView.findViewById(R.id.last_image);
 
         }
     }
 
-    public void lastMessage(final String userid, final TextView last_msg,final TextView unread){
+    public void lastMessage(final String userid, final TextView last_msg,final TextView unread,final ImageView last_image){
         lastMessage="default";
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Chats");
@@ -133,8 +131,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 msg_unRead=0;
-
-
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Chat chat = snapshot.getValue(Chat.class);
@@ -147,7 +143,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                     }
                     if(chat.getReciver().equals(firebaseUser.getUid())&&chat.getSender().equals(userid)||
                             chat.getReciver().equals(userid)&&chat.getSender().equals(firebaseUser.getUid())){
-                        lastMessage = chat.getMessage();
+                        if (chat.getType().equals("txt")){
+                            last_msg.setVisibility(View.VISIBLE);
+                        last_image.setVisibility(View.GONE);
+                        lastMessage = chat.getMessage();}
+                        else if (chat.getType().equals("image")){
+                            last_msg.setVisibility(View.GONE);
+                            last_image.setVisibility(View.VISIBLE);
+                        }
 
                     }
 
@@ -155,6 +158,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                 switch (lastMessage){
                     case "default"
                             :last_msg.setText("No Message");
+
                         break;
                     default:
                         last_msg.setText(lastMessage);

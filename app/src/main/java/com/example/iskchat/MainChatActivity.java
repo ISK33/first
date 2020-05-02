@@ -96,7 +96,6 @@ MyFirebaseMessagingService notifcation;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_chat);
 
-
         Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -262,8 +261,7 @@ MyFirebaseMessagingService notifcation;
 
                 if (Image != null) {
                     uploadImage(fuser.getUid(),userid,current_date,Image);
-                    Toast.makeText(this, "Upload ",
-                            Toast.LENGTH_LONG).show();
+
                 }
                 else
                     Toast.makeText(this, "Upload failed",
@@ -302,8 +300,6 @@ MyFirebaseMessagingService notifcation;
                 @Override
                 public void onComplete(@NonNull Task<Uri> task) {
                     if (task.isSuccessful()){
-                        Toast.makeText(MainChatActivity.this, "upload Image",
-                                Toast.LENGTH_LONG).show();
                         Uri downloadUri = task.getResult();
                         String mUri = downloadUri.toString();
 

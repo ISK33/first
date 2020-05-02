@@ -90,7 +90,7 @@
             android:textStyle="bold" />
 
     <Button
-        android:id="@+id/bt-signup"
+        android:id="@+id/bt_signup"
         style="@android:style/Widget.Holo.Button"
         android:layout_width="200dp"
         android:layout_height="50dp"
