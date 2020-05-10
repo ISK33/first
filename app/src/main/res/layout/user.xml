@@ -70,6 +70,7 @@
         android:layout_below="@id/username"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
+        android:visibility="gone"
         android:layout_toRightOf="@+id/profile_image"
         android:maxLines="1"
         android:src="@drawable/last_image"
